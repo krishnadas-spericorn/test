@@ -1,0 +1,19 @@
+import React, { Component } from 'react';
+import './App.css';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+class App extends Component {
+
+  render() {
+    cookies.set('Cat', 'man', { path: '/' });
+console.log(cookies.get('Cat'));
+    return (
+      <div>
+        <button>hi</button>
+        
+      </div>
+    );
+  }
+}
+
+export default App;

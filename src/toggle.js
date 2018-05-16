@@ -1,0 +1,35 @@
+import React from "react";
+import { FormErrors } from './FormErrors';
+import ToggleDisplay from 'react-toggle-display';
+import './login.css';
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { show: false };
+  }
+
+  handleClick() {
+    this.setState({
+      show: !this.state.show
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <p className="App-intro">
+          <input onChange={ () => this.handleClick() }>Toggle things</input>
+        </p>
+        <ToggleDisplay show={this.state.show}>
+          I am rendered in a span (by default) and hidden with display:none when show is false.
+        </ToggleDisplay>
+
+        <ToggleDisplay if={this.state.show} tag="section">
+          I am rendered in a section and removed from the DOM when if is false.
+        </ToggleDisplay>
+      </div>
+    );
+  }
+}
+
+export default App;

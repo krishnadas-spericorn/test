@@ -1,0 +1,36 @@
+import React from "react";
+
+
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = { show: false };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange() {
+    this.setState({
+      show: !this.state.show
+    })
+  }
+
+  render() {
+    const content = this.state.show 
+      ? <div> Content </div>
+      : null;
+
+      return <div>
+      <div>
+        <label>Check</label>
+        <input 
+         
+          show={ this.state.show } 
+          onClick={ this.handleChange } />
+      </div>
+
+      { content }
+    </div>;
+  }
+}
+export default App;

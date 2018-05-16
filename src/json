@@ -1,0 +1,33 @@
+import React  from 'react';
+import axios from "axios";
+
+class App extends React.Component{  
+    constructor(){
+        super()
+        this.state = {
+            todos: []
+        }
+    }
+
+
+    componentDidMount(){
+        axios.get("https://jsonplaceholder.typicode.com/posts/1/comments").then((response)=>{
+            this.setState(()=>{
+               return {
+                 todos: response.data
+               }
+            })
+        })
+    }
+
+    render(){
+        let mappedTodos = this.state.todos.map((todo)=>{
+          return <div> 
+                    {todo.name}
+              </div>
+        })
+
+        return mappedTodos;
+    }
+}
+export default App;

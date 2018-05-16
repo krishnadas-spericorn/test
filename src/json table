@@ -1,0 +1,50 @@
+import React from 'react'
+
+
+import data from './data/coins.json'
+
+import './app.css'
+
+function CoinTable(props) {
+
+  return(
+    <table>
+    <tbody>
+    {
+      props.data.map(row => (
+        <tr>
+
+          <td>{row.percent_change_1h}</td>
+          <td>{row.percent_change_24h}</td>
+          <td>{row.percent_change_7d}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+  </table>
+  )
+  }
+  
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: data
+    }
+
+
+  }
+
+
+  render() {
+    return (
+      <div
+        className="page-container"
+      >
+    <CoinTable data={this.state.data}/>
+      </div>
+    )
+  }
+}
+
+export default App

@@ -1,0 +1,37 @@
+import React from "react";
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.stoggle = this.stoggle.bind(this);
+    this.state = {
+      show: 0,
+      fname:''
+    };
+  }
+  stoggle() {
+    
+    this.setState({
+      show:1
+    });
+    
+  }
+  render() {
+    return (
+      <div>
+        <input className="form-control"
+              placeholder="First Name"
+              type="text"
+              name="fname"
+              ref="fname"
+              id="fname" 
+              onChange={ this.stoggle }
+              pattern="^.{3,}$"
+              required />
+        {this.state.show}
+        </div>
+    );
+  }
+}
+export default App;

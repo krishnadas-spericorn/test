@@ -1,0 +1,45 @@
+import React, { Component } from 'react';
+import Header from './Header'
+import GreetingInput from './GreetingInput'
+
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      dummy: 'Bobz',
+      pop:'dswd'
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  handleChange(e){
+    this.updateGreeting(e.target.value)
+  }
+  updateGreeting(greeting){
+    this.setState({dummy: greeting})
+  }
+  handleInputChange(e) {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+   
+    this.setState({
+    [name]: value
+    })
+    }
+  render() {
+    return (
+      <div>
+        <div>
+         
+        </div>
+        <div>
+
+        <input name="names" value={this.state.pop} onChange={this.handleInputChange}/>
+         
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
