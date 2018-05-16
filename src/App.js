@@ -14,7 +14,7 @@ class App extends React.Component {
       return (
          <div>
             <button onClick = {this.findDomNodeHandler}>FIND DOME NODE</button>
-            <div id = "myDiv">NODE
+            <div id = "myDiv">NODES
             <h1>wfew</h1></div>
          </div>
       );
